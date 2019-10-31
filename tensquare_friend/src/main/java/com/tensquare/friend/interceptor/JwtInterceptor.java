@@ -26,10 +26,10 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
                 try {
                     Claims claims = jwtUtil.parseJWT(token);
                     String roles = (String) claims.get("roles");
-                    if (roles != null && roles.equals("admin")) {
+                    if (roles != null && "admin".equals(roles)) {
                         request.setAttribute("claims_admin", claims);
                     }
-                    if (roles != null && roles.equals("user")) {
+                    if (roles != null && "user".equals(roles)) {
                         request.setAttribute("claims_user", claims);
                     }
                 } catch (Exception e) {

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: tensquare-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://172.30.61.251:3000/stone/tensquare-config.git
+  rabbitmq:
+    host: 172.30.61.251
+server:
+  port: 12000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

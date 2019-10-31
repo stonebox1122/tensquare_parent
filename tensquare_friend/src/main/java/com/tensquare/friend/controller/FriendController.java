@@ -38,7 +38,7 @@ public class FriendController {
         String userid = claims.getId();
         // 判断是添加好友还是添加非好友
         if (type != null) {
-            if (type.equals("1")) {
+            if ("1".equals(type)) {
                 // 添加好友
                 int flag = friendService.addFriend(userid, friendid);
                 if (flag == 0) {
@@ -48,7 +48,7 @@ public class FriendController {
                     userClient.updateFanscountAndFollowcount(userid, friendid, 1);
                     return new Result(true, StatusCode.OK, "添加成功");
                 }
-            } else if (type.equals("2")) {
+            } else if ("2".equals(type)) {
                 // 添加非好友
                 int flag = friendService.addNoFriend(userid, friendid);
                 if (flag == 0) {
